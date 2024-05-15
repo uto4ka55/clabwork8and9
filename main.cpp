@@ -21,11 +21,8 @@ public:
         elements.erase(element);
     }
 
-    void display() const {
-        for (const auto& element : elements) {
-            cout << element << ' ';
-        }
-        cout << '\n';
+    size_t size() const {
+        return elements.size();
     }
 
     Set operator*(const Set& other) const {
@@ -101,23 +98,21 @@ int main() {
         cout << "Invalid choice\n";
         return 0;
     }
+        while (true) {
+            cout << "\n1. Add element to set1\n"
+                 << "2. Add element to set2\n"
+                 << "3. Delete element from set1\n"
+                 << "4. Delete element from set2\n"
+                 << "5. Display set1 and its power\n"
+                 << "6. Display set2 and its power\n"
+                 << "7. Display intersection of set1 and set2\n"
+                 << "8. Display union of set1 and set2\n"
+                 << "9. Display difference of set1 and set2\n"
+                 << "0. Exit\n"
+                 << "Enter your choice: ";
+            cin >> choice;
 
-    while (true) {
-        cout << "\n1. Add element to set1\n"
-             << "2. Add element to set2\n"
-             << "3. Delete element from set1\n"
-             << "4. Delete element from set2\n"
-             << "5. Display size of set1\n"
-             << "6. Display size of set2\n"
-             << "7. Display set1\n"
-             << "8. Display set2\n"
-             << "9. Display intersection of set1 and set2\n"
-             << "10. Display union of set1 and set2\n"
-             << "11. Display difference of set1 and set2\n"
 
-             << "0. Exit\n"
-             << "Enter your choice: ";
-        cin >> choice;
 
         switch (choice) {
             case 1:
@@ -141,24 +136,20 @@ int main() {
                 set2.deleteElement(element);
                 break;
             case 5:
-                cout << "Size of set1: " << set1.elements.size() << '\n';
+                cout << "Set1: " << set1 << '\n';
+                cout << "Power of set1: " << set1.size() << '\n';
                 break;
             case 6:
-                cout << "Size of set2: " << set2.elements.size() << '\n';
+                cout << "Set2: " << set2 << '\n';
+                cout << "Power of set2: " << set2.size() << '\n';
                 break;
             case 7:
-                cout << "Set1: " << set1 << '\n';
-                break;
-            case 8:
-                cout << "Set2: " << set2 << '\n';
-                break;
-            case 9:
                 cout << "Intersection: " << (set1 * set2) << '\n';
                 break;
-            case 10:
+            case 8:
                 cout << "Union: " << (set1 + set2) << '\n';
                 break;
-            case 11:
+            case 9:
                 cout << "Difference: " << (set1 - set2) << '\n';
                 break;
             case 0:
